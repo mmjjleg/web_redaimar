@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Red AIMAR — Inteligencia artificial para el diseño naval iberoamericano</title>
+<meta name="description" content="Red Temática CYTED (326RT0196). Inteligencia artificial para el diseño preliminar y la mejora de la manufactura naval en astilleros y astilleros pyme iberoamericanos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,500..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --tinta:#0C2B3E;        /* tinta marina */
+  --tinta-suave:#28495E;
+  --papel:#EEF3F6;        /* papel técnico frío */
+  --papel-alto:#FFFFFF;
+  --linea:#A9BFCC;        /* línea de plano */
+  --linea-fina:#C9D8E0;
+  --boya:#E8541D;         /* naranja de boya, acento único */
+  --texto:#1B3140;
+  --texto-suave:#54707F;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{
+  font-family:'IBM Plex Sans',system-ui,sans-serif;
+  background:var(--papel);
+  color:var(--texto);
+  line-height:1.6;
+  font-size:17px;
+}
+.mono{font-family:'IBM Plex Mono',monospace}
+
+/* ---------- Navegación ---------- */
+nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(238,243,246,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--linea-fina);
+}
+.nav-inner{
+  max-width:1100px;margin:0 auto;padding:0 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  height:60px;
+}
+.marca{
+  font-family:'Archivo',sans-serif;
+  font-variation-settings:'wdth' 125;
+  font-weight:800;font-size:1.15rem;letter-spacing:.02em;
+  color:var(--tinta);text-decoration:none;
+  display:flex;align-items:baseline;gap:.5rem;
+}
+.marca .ref{font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:.68rem;color:var(--texto-suave);letter-spacing:0}
+.nav-links{display:flex;gap:26px;list-style:none}
+.nav-links a{
+  text-decoration:none;color:var(--texto-suave);
+  font-size:.86rem;font-weight:500;letter-spacing:.01em;
+  transition:color .15s;
+}
+.nav-links a:hover,.nav-links a:focus-visible{color:var(--boya)}
+a:focus-visible{outline:2px solid var(--boya);outline-offset:3px;border-radius:2px}
+@media(max-width:760px){.nav-links{display:none}}
+
+/* ---------- Hero: plano de líneas ---------- */
+header{
+  position:relative;overflow:hidden;
+  border-bottom:1px solid var(--linea-fina);
+  background:var(--papel);
+}
+.hero-lineas{
+  position:absolute;inset:0;width:100%;height:100%;
+  opacity:.55;pointer-events:none;
+}
+.hero-inner{
+  position:relative;max-width:1100px;margin:0 auto;
+  padding:90px 24px 70px;
+}
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--boya);margin-bottom:22px;
+  display:flex;align-items:center;gap:12px;
+}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--boya)}
+h1{
+  font-family:'Archivo',sans-serif;
+  font-variation-settings:'wdth' 125;
+  font-weight:850;
+  font-size:clamp(2.1rem,5.4vw,3.9rem);
+  line-height:1.04;letter-spacing:-.01em;
+  color:var(--tinta);
+  max-width:19ch;
+  margin-bottom:26px;
+}
+h1 em{font-style:normal;color:var(--boya)}
+.hero-sub{
+  max-width:56ch;color:var(--texto-suave);
+  font-size:1.06rem;margin-bottom:38px;
+}
+.cta-fila{display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  display:inline-block;text-decoration:none;
+  font-weight:600;font-size:.9rem;
+  padding:13px 26px;border-radius:3px;
+  transition:transform .15s,background .15s;
+}
+.btn-primario{background:var(--tinta);color:#fff}
+.btn-primario:hover{background:var(--tinta-suave);transform:translateY(-1px)}
+.btn-secundario{border:1px solid var(--linea);color:var(--tinta)}
+.btn-secundario:hover{border-color:var(--boya);color:var(--boya)}
+
+/* ---------- Franja de datos ---------- */
+.datos{
+  background:var(--tinta);color:#fff;
+}
+.datos-inner{
+  max-width:1100px;margin:0 auto;padding:34px 24px;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+}
+.dato .num{
+  font-family:'Archivo',sans-serif;
+  font-variation-settings:'wdth' 125;
+  font-weight:800;font-size:2.3rem;line-height:1;
+}
+.dato .lbl{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+  color:#9FB9CB;margin-top:8px;
+}
+@media(max-width:700px){.datos-inner{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- Secciones ---------- */
+section{max-width:1100px;margin:0 auto;padding:80px 24px}
+.sec-cabecera{margin-bottom:44px;max-width:62ch}
+.sec-num{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.74rem;letter-spacing:.14em;color:var(--boya);
+  text-transform:uppercase;margin-bottom:12px;
+  display:flex;align-items:center;gap:12px;
+}
+.sec-num::before{content:"";width:34px;height:1px;background:var(--boya)}
+h2{
+  font-family:'Archivo',sans-serif;
+  font-variation-settings:'wdth' 125;
+  font-weight:800;font-size:clamp(1.5rem,3vw,2.2rem);
+  color:var(--tinta);line-height:1.15;margin-bottom:14px;
+}
+.sec-cabecera p{color:var(--texto-suave)}
+
+/* Objetivos */
+.obj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--linea-fina);border:1px solid var(--linea-fina)}
+.obj{background:var(--papel-alto);padding:28px 24px}
+.obj .oe{
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;
+  color:var(--boya);letter-spacing:.1em;margin-bottom:10px;
+}
+.obj h3{font-size:1rem;font-weight:600;color:var(--tinta);margin-bottom:8px;line-height:1.35}
+.obj p{font-size:.88rem;color:var(--texto-suave);line-height:1.55}
+@media(max-width:900px){.obj-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.obj-grid{grid-template-columns:1fr}}
+
+/* La red: países */
+.paises-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.pais{
+  background:var(--papel-alto);border:1px solid var(--linea-fina);
+  border-radius:4px;padding:22px 20px;
+  transition:border-color .15s;
+}
+.pais:hover{border-color:var(--linea)}
+.pais h3{
+  font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 125;
+  font-weight:700;font-size:1rem;color:var(--tinta);
+  margin-bottom:4px;
+}
+.pais .n-grupos{
+  font-family:'IBM Plex Mono',monospace;font-size:.7rem;
+  color:var(--boya);letter-spacing:.08em;text-transform:uppercase;
+  margin-bottom:12px;
+}
+.pais ul{list-style:none}
+.pais li{
+  font-size:.84rem;color:var(--texto-suave);
+  padding:4px 0;border-top:1px solid var(--linea-fina);
+  line-height:1.4;
+}
+.pais li:first-child{border-top:none}
+@media(max-width:960px){.paises-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.paises-grid{grid-template-columns:1fr}}
+
+/* Actividades: cuaderna maestra (timeline) */
+.acts{position:relative;padding-left:34px;max-width:720px}
+.acts::before{
+  content:"";position:absolute;left:8px;top:6px;bottom:6px;
+  width:1px;background:var(--linea);
+}
+.act{position:relative;padding-bottom:30px}
+.act:last-child{padding-bottom:0}
+.act::before{
+  content:"";position:absolute;left:-30px;top:7px;
+  width:9px;height:9px;border-radius:50%;
+  background:var(--papel);border:2px solid var(--boya);
+}
+.act .codigo{
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;
+  color:var(--boya);letter-spacing:.08em;
+}
+.act h3{font-size:1.02rem;font-weight:600;color:var(--tinta);margin:4px 0 6px}
+.act p{font-size:.9rem;color:var(--texto-suave)}
+
+/* Resultados */
+.resultados-vacio{
+  background:var(--papel-alto);border:1px dashed var(--linea);
+  border-radius:4px;padding:44px 32px;text-align:center;
+  max-width:720px;
+}
+.resultados-vacio .codigo{
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;
+  letter-spacing:.1em;color:var(--boya);text-transform:uppercase;
+}
+.resultados-vacio h3{
+  font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 125;
+  font-weight:700;color:var(--tinta);margin:10px 0 8px;font-size:1.15rem;
+}
+.resultados-vacio p{font-size:.92rem;color:var(--texto-suave);max-width:48ch;margin:0 auto}
+
+/* Contacto */
+.contacto-caja{
+  background:var(--tinta);color:#fff;border-radius:4px;
+  padding:52px 44px;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;
+  align-items:center;
+}
+.contacto-caja h2{color:#fff}
+.contacto-caja p{color:#B9CBD8;font-size:.95rem}
+.contacto-datos{font-size:.92rem}
+.contacto-datos .campo{
+  font-family:'IBM Plex Mono',monospace;font-size:.7rem;
+  letter-spacing:.1em;text-transform:uppercase;color:#7E9BAE;
+  margin-bottom:4px;
+}
+.contacto-datos .valor{margin-bottom:20px;color:#fff}
+.contacto-datos a{color:#fff;text-decoration:underline;text-decoration-color:var(--boya);text-underline-offset:3px}
+@media(max-width:760px){.contacto-caja{grid-template-columns:1fr;padding:36px 28px}}
+
+/* Footer */
+footer{
+  border-top:1px solid var(--linea-fina);
+  padding:36px 24px 44px;
+}
+.footer-inner{
+  max-width:1100px;margin:0 auto;
+  display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
+  font-size:.8rem;color:var(--texto-suave);
+}
+.footer-inner .mono{font-size:.72rem}
+</style>
+</head>
+<body>
+
+<nav aria-label="Navegación principal">
+  <div class="nav-inner">
+    <a class="marca" href="#inicio">AIMAR <span class="ref">326RT0196</span></a>
+    <ul class="nav-links">
+      <li><a href="#objetivos">Objetivos</a></li>
+      <li><a href="#red">La Red</a></li>
+      <li><a href="#actividades">Actividades</a></li>
+      <li><a href="#resultados">Resultados</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header id="inicio">
+  <!-- Plano de líneas: secciones de casco (body plan) como firma visual -->
+  <svg class="hero-lineas" viewBox="0 0 1200 560" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+    <g fill="none" stroke="#A9BFCC" stroke-width="1">
+      <!-- retícula de plano -->
+      <line x1="850" y1="40" x2="850" y2="520" stroke-dasharray="2 6"/>
+      <line x1="560" y1="480" x2="1160" y2="480" stroke-dasharray="2 6"/>
+      <line x1="560" y1="380" x2="1160" y2="380" stroke-dasharray="2 6" opacity=".5"/>
+      <line x1="560" y1="280" x2="1160" y2="280" stroke-dasharray="2 6" opacity=".5"/>
+      <!-- cuadernas: mitad de popa (izquierda del eje) -->
+      <path d="M850 480 C 760 470, 700 420, 690 330 C 685 260, 700 170, 730 90"/>
+      <path d="M850 480 C 775 468, 725 425, 715 345 C 710 280, 722 190, 748 110"/>
+      <path d="M850 480 C 792 466, 750 430, 742 360 C 738 300, 748 210, 768 130"/>
+      <path d="M850 480 C 810 464, 778 436, 772 375 C 769 320, 776 230, 790 150"/>
+      <path d="M850 480 C 826 462, 806 442, 802 390 C 800 340, 804 250, 812 170"/>
+      <!-- cuadernas: mitad de proa (derecha del eje) -->
+      <path d="M850 480 C 940 472, 1005 430, 1020 340 C 1030 265, 1020 165, 985 80"/>
+      <path d="M850 480 C 925 470, 980 435, 993 355 C 1001 288, 993 190, 965 105"/>
+      <path d="M850 480 C 908 468, 952 440, 962 370 C 968 308, 962 212, 940 128"/>
+      <path d="M850 480 C 890 466, 922 445, 929 385 C 933 328, 929 235, 913 152"/>
+      <path d="M850 480 C 872 463, 890 448, 894 398 C 896 348, 894 255, 885 172"/>
+      <!-- línea de flotación destacada -->
+      <line x1="560" y1="330" x2="1160" y2="330" stroke="#E8541D" stroke-width="1" opacity=".6"/>
+    </g>
+    <g font-family="IBM Plex Mono, monospace" font-size="10" fill="#8AA5B5">
+      <text x="1085" y="325">L.F. — DWL</text>
+      <text x="858" y="58">EJE ⊥ CRUJÍA</text>
+    </g>
+  </svg>
+
+  <div class="hero-inner">
+    <p class="eyebrow">Red Temática CYTED · 2026–2029</p>
+    <h1>Inteligencia artificial para el <em>diseño preliminar</em> de embarcaciones</h1>
+    <p class="hero-sub">AIMAR desarrolla y valida una herramienta de IA generativa que automatiza el diseño preliminar naval, adaptada a las capacidades productivas reales de los astilleros y astilleros pyme iberoamericanos.</p>
+    <div class="cta-fila">
+      <a class="btn btn-primario" href="#red">Conocer la Red</a>
+      <a class="btn btn-secundario" href="#contacto">Contactar</a>
+    </div>
+  </div>
+</header>
+
+<div class="datos" role="region" aria-label="La red en cifras">
+  <div class="datos-inner">
+    <div class="dato"><div class="num">18</div><div class="lbl">Grupos</div></div>
+    <div class="dato"><div class="num">52</div><div class="lbl">Integrantes</div></div>
+    <div class="dato"><div class="num">8</div><div class="lbl">Países</div></div>
+    <div class="dato"><div class="num">48</div><div class="lbl">Meses</div></div>
+  </div>
+</div>
+
+<section id="objetivos">
+  <div class="sec-cabecera">
+    <p class="sec-num">Objetivos</p>
+    <h2>Del requisito del cliente a la propuesta construible</h2>
+    <p>El objetivo general de AIMAR es desarrollar una herramienta basada en inteligencia artificial que genere propuestas de diseño preliminar a partir de requisitos técnicos —tipo de servicio, eslora, velocidad, capacidad—, mejorando los procesos de manufactura, reduciendo tiempos y costes y aumentando la competitividad del sector naval iberoamericano.</p>
+  </div>
+  <div class="obj-grid">
+    <div class="obj"><div class="oe">OE1</div><h3>Sistema de IA generativa</h3><p>Entrenado con bases de datos de embarcaciones reales, capaz de adaptar propuestas a distintos perfiles de cliente y servicio.</p></div>
+    <div class="obj"><div class="oe">OE2</div><h3>Diseño orientado a la manufactura</h3><p>Criterios DfM que garantizan la viabilidad técnica según los recursos y capacidades típicas de los astilleros pyme.</p></div>
+    <div class="obj"><div class="oe">OE3</div><h3>Validación en entornos reales</h3><p>Casos piloto en astilleros participantes, con retroalimentación directa de los equipos técnicos.</p></div>
+    <div class="obj"><div class="oe">OE4</div><h3>Materiales exportables</h3><p>Planos conceptuales, informes de cálculo y estimaciones directamente utilizables por ingeniería de producción.</p></div>
+    <div class="obj"><div class="oe">OE5</div><h3>Capacitación y transferencia</h3><p>Talleres, seminarios, pasantías y formación cruzada entre academia y empresa, con foco en jóvenes investigadores.</p></div>
+    <div class="obj"><div class="oe">OE6</div><h3>Red sólida y sostenible</h3><p>Una red iberoamericana en digitalización de astilleros con continuidad más allá de la financiación CYTED.</p></div>
+  </div>
+</section>
+
+<section id="red">
+  <div class="sec-cabecera">
+    <p class="sec-num">La Red</p>
+    <h2>18 grupos, 8 países, un mismo sector</h2>
+    <p>AIMAR reúne astilleros, universidades y organizaciones técnicas de toda Iberoamérica. Esta combinación de sector productivo y académico garantiza que la herramienta responda a necesidades reales y llegue a quien la va a usar.</p>
+  </div>
+  <div class="paises-grid">
+    <div class="pais"><h3>España</h3><p class="n-grupos">Coordinación</p><ul><li>Universidad Politécnica de Cartagena (UPCT)</li></ul></div>
+    <div class="pais"><h3>Colombia</h3><p class="n-grupos">5 grupos</p><ul><li>COTECMAR</li><li>Universidad Tecnológica de Bolívar</li><li>Ghenova</li><li>B2LJPROPCenter</li><li>Cámara de Comercio de Cartagena de Indias</li></ul></div>
+    <div class="pais"><h3>Ecuador</h3><p class="n-grupos">4 grupos</p><ul><li>TECNAVIN</li><li>Factoría Naval Morla (FAMORSA)</li><li>Escuela Superior Politécnica del Litoral (ESPOL)</li><li>Xcoti</li></ul></div>
+    <div class="pais"><h3>Chile</h3><p class="n-grupos">3 grupos</p><ul><li>Universidad Austral de Chile</li><li>Innercore</li><li>Australis Mar</li></ul></div>
+    <div class="pais"><h3>Brasil</h3><p class="n-grupos">2 grupos</p><ul><li>Universidade Federal do Rio de Janeiro (UFRJ)</li><li>BRANA Educação e Projetos Náuticos</li></ul></div>
+    <div class="pais"><h3>Argentina</h3><p class="n-grupos">1 grupo</p><ul><li>SPI Astilleros</li></ul></div>
+    <div class="pais"><h3>México</h3><p class="n-grupos">1 grupo</p><ul><li>Universidad Veracruzana</li></ul></div>
+    <div class="pais"><h3>Perú</h3><p class="n-grupos">1 grupo</p><ul><li>Universidad de Ingeniería y Tecnología (UTEC)</li></ul></div>
+  </div>
+</section>
+
+<section id="actividades">
+  <div class="sec-cabecera">
+    <p class="sec-num">Actividades · Año 1</p>
+    <h2>Rumbo del primer año</h2>
+    <p>Las actividades de 2026 sientan la base técnica y organizativa de la herramienta AIMAR.</p>
+  </div>
+  <div class="acts">
+    <div class="act"><span class="codigo">A1.1</span><h3>Estado del arte</h3><p>Revisión de la IA aplicada al diseño naval y la manufactura digital.</p></div>
+    <div class="act"><span class="codigo">A1.2</span><h3>Base de datos de embarcaciones</h3><p>Creación de la base de datos de embarcaciones reales, requisitos funcionales y planos conceptuales.</p></div>
+    <div class="act"><span class="codigo">A1.3</span><h3>Parámetros de diseño con astilleros</h3><p>Definición conjunta de parámetros y restricciones productivas y logísticas del proceso de manufactura.</p></div>
+    <div class="act"><span class="codigo">A1.4</span><h3>Arquitectura del modelo de IA</h3><p>Selección de framework y diseño de la arquitectura del sistema generativo.</p></div>
+    <div class="act"><span class="codigo">A1.5</span><h3>Modelo inicial</h3><p>Implementación del primer modelo de generación de diseños y pruebas preliminares.</p></div>
+    <div class="act"><span class="codigo">A1.6</span><h3>Web y difusión</h3><p>Lanzamiento de esta página web y de los perfiles de la Red en redes sociales técnicas.</p></div>
+    <div class="act"><span class="codigo">A1.7</span><h3>Seminario inicial</h3><p>Seminario sobre IA y diseño naval orientado a astilleros.</p></div>
+  </div>
+</section>
+
+<section id="resultados">
+  <div class="sec-cabecera">
+    <p class="sec-num">Resultados</p>
+    <h2>Publicaciones y entregables</h2>
+  </div>
+  <div class="resultados-vacio">
+    <p class="codigo">En preparación</p>
+    <h3>Primeros resultados en 2026</h3>
+    <p>Aquí se publicarán en acceso abierto los informes técnicos, artículos y materiales formativos de la Red, empezando por el informe de estado del arte sobre IA en diseño naval.</p>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="contacto-caja">
+    <div>
+      <p class="sec-num" style="color:#FF7A45">Contacto</p>
+      <h2>Coordinación de la Red</h2>
+      <p>Si tu institución, astillero u oficina técnica está interesada en las actividades de AIMAR, escríbenos.</p>
+    </div>
+    <div class="contacto-datos">
+      <p class="campo">Coordinadora</p>
+      <p class="valor">María José Legaz Almansa</p>
+      <p class="campo">Institución</p>
+      <p class="valor">Universidad Politécnica de Cartagena — Física Aplicada y Tecnología Naval</p>
+      <p class="campo">Correo</p>
+      <p class="valor"><a href="mailto:mariajose.legaz@upct.es">mariajose.legaz@upct.es</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <p>Red Temática AIMAR · Financiada por el Programa CYTED · <span class="mono">Ref. 326RT0196 (2026–2029)</span></p>
+    <p>Universidad Politécnica de Cartagena</p>
+  </div>
+</footer>
+
+</body>
+</html>
