@@ -21,7 +21,6 @@
   --texto-suave:#54707F;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-[hidden]{display:none!important}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
 body{
@@ -279,9 +278,6 @@ h2{
 .sem-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
 .btn-claro{background:#fff;color:var(--tinta)}
 .btn-claro:hover{background:#E4ECF1;transform:translateY(-1px)}
-.btn-borde{border:1px solid #4E7089;color:#fff}
-.btn-borde:hover{border-color:var(--boya);color:#FF8A5C}
-.btn-pendiente{border:1px dashed #4E7089;color:#8AA5B5;cursor:default}
 /* Entradas de resultados */
 .res-item{background:var(--papel-alto);border:1px solid var(--linea-fina);border-radius:4px;padding:28px;display:grid;grid-template-columns:200px 1fr;gap:28px;align-items:start;max-width:860px;margin-bottom:16px}
 .res-item img{width:100%;border:1px solid var(--linea-fina);border-radius:3px}
@@ -322,7 +318,7 @@ footer{
 
 <a class="aviso-banner" href="#seminario">
   🚢 Seminario abierto en Río de Janeiro — «Inteligencia artificial y diseño naval orientado a astilleros» · Lunes 16 de noviembre, 15:00–18:00 (hora de Río)<br>
-  <span class="mini">31.º CONGRESO SOBENA · UFRJ · PRESENCIAL Y EN LÍNEA · VER PROGRAMA ↓</span>
+  <span class="mini">31.º CONGRESO SOBENA · UFRJ · ENTRADA LIBRE Y GRATUITA · VER PROGRAMA ↓</span>
 </a>
 
 <header id="inicio">
@@ -385,8 +381,8 @@ footer{
       </div>
       <div class="sem-ficha">
         <p class="campo">Asistencia</p>
-        <p class="valor">Libre · presencial y en línea</p>
-        <p class="detalle">El enlace de conexión se publicará aquí el mismo día del seminario.</p>
+        <p class="valor">Libre y gratuita</p>
+        <p class="detalle">Abierto al público interesado, sin inscripción previa.</p>
       </div>
     </div>
 
@@ -414,24 +410,13 @@ footer{
       </div>
     </div>
     <figure class="sem-cartel">
-      <a href="cartel-seminario-rio-2026.png" target="_blank" rel="noopener"><img src="cartel-seminario-rio-2026.png" alt="Cartel del seminario abierto AIMAR «Inteligencia artificial y diseño naval orientado a astilleros», lunes 16 de noviembre de 2026, UFRJ, Río de Janeiro" width="1000" height="1414" loading="lazy"></a>
+      <a href="cartel-seminario-rio-2026.png?v=2" target="_blank" rel="noopener"><img src="cartel-seminario-rio-2026.png?v=2" alt="Cartel del seminario abierto AIMAR «Inteligencia artificial y diseño naval orientado a astilleros», lunes 16 de noviembre de 2026, UFRJ, Río de Janeiro" width="1000" height="1414" loading="lazy"></a>
       <figcaption>Cartel · clic para ampliar</figcaption>
     </figure>
     </div>
 
     <div class="sem-cta">
       <a class="btn btn-claro" href="programa-seminario-aimar-rio-2026.pdf" target="_blank" rel="noopener">Programa en PDF ↓</a>
-      <!-- ══════════════════════════════════════════════════════════════
-           EL DÍA 16 DE NOVIEMBRE, para publicar el enlace de conexión,
-           haz tres cambios en la línea de "Conectarse en directo":
-           1) sustituye PEGA_AQUI_EL_ENLACE por la URL real de la
-              reunión (Zoom/Teams/Meet), dejando las comillas;
-           2) cambia btn-pendiente por btn-borde;
-           3) borra la palabra suelta: hidden
-           Y BORRA entera la línea del span "disponible el 16 de noviembre".
-           ══════════════════════════════════════════════════════════════ -->
-      <span class="btn btn-pendiente">Enlace de conexión — disponible el 16 de noviembre</span>
-      <a class="btn btn-pendiente" href="PEGA_AQUI_EL_ENLACE" target="_blank" rel="noopener" hidden>🔴 Conectarse en directo</a>
     </div>
   </div>
 </section>
