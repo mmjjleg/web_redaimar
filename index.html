@@ -21,6 +21,7 @@
   --texto-suave:#54707F;
 }
 *{margin:0;padding:0;box-sizing:border-box}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
 body{
@@ -242,6 +243,54 @@ h2{
 .contacto-datos a{color:#fff;text-decoration:underline;text-decoration-color:var(--boya);text-underline-offset:3px}
 @media(max-width:760px){.contacto-caja{grid-template-columns:1fr;padding:36px 28px}}
 
+/* ---------- Aviso y sección del seminario ---------- */
+.aviso-banner{
+  display:block;background:var(--boya);color:#fff;text-decoration:none;
+  text-align:center;padding:13px 24px;font-size:.95rem;font-weight:600;
+  line-height:1.45;transition:background .15s;
+}
+.aviso-banner:hover{background:#C84715}
+.aviso-banner .mini{font-family:'IBM Plex Mono',monospace;font-size:.74rem;font-weight:400;opacity:.95;letter-spacing:.06em}
+.sem{background:var(--tinta);color:#fff}
+.sem-inner{max-width:1100px;margin:0 auto;padding:72px 24px}
+.sem .sec-num{color:#FF7A45}
+.sem h2{color:#fff;max-width:24ch}
+.sem-lead{color:#B9CBD8;max-width:62ch;margin-bottom:36px}
+.sem-fichas{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:44px}
+.sem-ficha{background:#113549;border:1px solid #28495E;border-radius:4px;padding:20px 22px}
+.sem-ficha .campo{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:#7E9BAE;margin-bottom:8px}
+.sem-ficha .valor{font-weight:600;line-height:1.4}
+.sem-ficha .detalle{font-size:.84rem;color:#9FB9CB;margin-top:4px;line-height:1.45}
+@media(max-width:760px){.sem-fichas{grid-template-columns:1fr}}
+.sem-cuerpo{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:48px;align-items:start;margin-bottom:40px}
+.sem-prog{max-width:760px}
+.sem-cartel{margin:0}
+.sem-cartel a{display:block;border:1px solid #28495E;border-radius:4px;overflow:hidden;transition:border-color .15s,transform .15s}
+.sem-cartel a:hover{border-color:var(--boya);transform:translateY(-2px)}
+.sem-cartel img{display:block;width:100%;height:auto}
+.sem-cartel figcaption{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:#7E9BAE;margin-top:10px;text-align:center}
+@media(max-width:900px){.sem-cuerpo{grid-template-columns:1fr;gap:36px}.sem-cartel{max-width:420px;width:100%;margin:0 auto}}
+.sem-item{display:grid;grid-template-columns:86px 1fr;gap:18px;padding:18px 0;border-top:1px solid #28495E}
+.sem-item:last-child{border-bottom:1px solid #28495E}
+.sem-hora{font-family:'IBM Plex Mono',monospace;color:var(--boya);font-size:.95rem;padding-top:2px}
+.sem-item h3{font-size:1.02rem;font-weight:600;color:#fff;margin-bottom:3px}
+.sem-item .quien{font-size:.84rem;color:#9FB9CB;margin-bottom:5px}
+.sem-item .titulo-pon{font-size:.92rem;color:#D7E2E9;font-style:italic}
+.sem-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn-claro{background:#fff;color:var(--tinta)}
+.btn-claro:hover{background:#E4ECF1;transform:translateY(-1px)}
+.btn-borde{border:1px solid #4E7089;color:#fff}
+.btn-borde:hover{border-color:var(--boya);color:#FF8A5C}
+.btn-pendiente{border:1px dashed #4E7089;color:#8AA5B5;cursor:default}
+/* Entradas de resultados */
+.res-item{background:var(--papel-alto);border:1px solid var(--linea-fina);border-radius:4px;padding:28px;display:grid;grid-template-columns:200px 1fr;gap:28px;align-items:start;max-width:860px;margin-bottom:16px}
+.res-item img{width:100%;border:1px solid var(--linea-fina);border-radius:3px}
+.res-item .codigo{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.1em;color:var(--boya);text-transform:uppercase}
+.res-item h3{font-size:1.05rem;color:var(--tinta);margin:6px 0 8px;line-height:1.35}
+.res-item p{font-size:.9rem;color:var(--texto-suave)}
+.res-item a{color:var(--boya)}
+@media(max-width:640px){.res-item{grid-template-columns:1fr}}
+
 /* Footer */
 footer{
   border-top:1px solid var(--linea-fina);
@@ -261,6 +310,7 @@ footer{
   <div class="nav-inner">
     <a class="marca" href="#inicio">AIMAR <span class="ref">326RT0196</span></a>
     <ul class="nav-links">
+      <li><a href="#seminario" style="color:var(--boya);font-weight:600">Seminario · Río</a></li>
       <li><a href="#objetivos">Objetivos</a></li>
       <li><a href="#red">La Red</a></li>
       <li><a href="#actividades">Actividades</a></li>
@@ -269,6 +319,11 @@ footer{
     </ul>
   </div>
 </nav>
+
+<a class="aviso-banner" href="#seminario">
+  🚢 Seminario abierto en Río de Janeiro — «Inteligencia artificial y diseño naval orientado a astilleros» · Lunes 16 de noviembre, 15:00–18:00 (hora de Río)<br>
+  <span class="mini">31.º CONGRESO SOBENA · UFRJ · PRESENCIAL Y EN LÍNEA · VER PROGRAMA ↓</span>
+</a>
 
 <header id="inicio">
   <!-- Plano de líneas: secciones de casco (body plan) como firma visual -->
@@ -310,6 +365,76 @@ footer{
     </div>
   </div>
 </header>
+
+<section id="seminario" class="sem" style="max-width:none;padding:0">
+  <div class="sem-inner">
+    <p class="sec-num">Seminario abierto · 16 de noviembre de 2026</p>
+    <h2>Inteligencia artificial y diseño naval orientado a astilleros</h2>
+    <p class="sem-lead">Qué puede hacer hoy la IA por el diseño y la construcción de embarcaciones en astilleros pequeños y medianos: tres ponencias y una puesta en común con los astilleros de la Red AIMAR. Actividad celebrada en el marco del 31.º Congreso SOBENA.</p>
+
+    <div class="sem-fichas">
+      <div class="sem-ficha">
+        <p class="campo">Fecha</p>
+        <p class="valor">Lunes 16 de noviembre de 2026</p>
+        <p class="detalle">15:00 – 18:00 · hora de Río de Janeiro (19:00 – 22:00 en España peninsular)</p>
+      </div>
+      <div class="sem-ficha">
+        <p class="campo">Lugar</p>
+        <p class="valor">UFRJ · Centro de Tecnologia 1 · Bloco G, sala G111</p>
+        <p class="detalle">Av. Athos da Silveira Ramos, 808-852 · Cidade Universitária, Río de Janeiro</p>
+      </div>
+      <div class="sem-ficha">
+        <p class="campo">Asistencia</p>
+        <p class="valor">Libre · presencial y en línea</p>
+        <p class="detalle">El enlace de conexión se publicará aquí el mismo día del seminario.</p>
+      </div>
+    </div>
+
+    <div class="sem-cuerpo">
+    <div class="sem-prog">
+      <div class="sem-item">
+        <div class="sem-hora">15:00</div>
+        <div><h3>Apertura</h3><p class="quien">María José Legaz · Universidad Politécnica de Cartagena · Coordinadora de la Red AIMAR</p></div>
+      </div>
+      <div class="sem-item">
+        <div class="sem-hora">15:10</div>
+        <div><h3>Pablo Sanz</h3><p class="quien">Universidad Politécnica de Cartagena · intervención en línea</p><p class="titulo-pon">«La IA como proyectista naval»</p></div>
+      </div>
+      <div class="sem-item">
+        <div class="sem-hora">15:55</div>
+        <div><h3>Jean-David Caprace</h3><p class="quien">Universidade Federal do Rio de Janeiro · COPPE</p><p class="titulo-pon">«From First Sketch to Final Dismantling: AI, Machine Learning and Engineering Decision Support Across the Ship Life Cycle»</p></div>
+      </div>
+      <div class="sem-item">
+        <div class="sem-hora">16:55</div>
+        <div><h3>Sergio Vera</h3><p class="quien">Innercore</p><p class="titulo-pon">«Desafíos de la IA: la experiencia de Innercore»</p></div>
+      </div>
+      <div class="sem-item">
+        <div class="sem-hora">17:40</div>
+        <div><h3>Puesta en común entre todos</h3><p class="quien">¿Qué hacer hoy con la IA en los astilleros pyme? · Con los astilleros socios de la Red</p></div>
+      </div>
+    </div>
+    <figure class="sem-cartel">
+      <a href="cartel-seminario-rio-2026.png" target="_blank" rel="noopener"><img src="cartel-seminario-rio-2026.png" alt="Cartel del seminario abierto AIMAR «Inteligencia artificial y diseño naval orientado a astilleros», lunes 16 de noviembre de 2026, UFRJ, Río de Janeiro" width="1000" height="1414" loading="lazy"></a>
+      <figcaption>Cartel · clic para ampliar</figcaption>
+    </figure>
+    </div>
+
+    <div class="sem-cta">
+      <a class="btn btn-claro" href="programa-seminario-aimar-rio-2026.pdf" target="_blank" rel="noopener">Programa en PDF ↓</a>
+      <!-- ══════════════════════════════════════════════════════════════
+           EL DÍA 16 DE NOVIEMBRE, para publicar el enlace de conexión,
+           haz tres cambios en la línea de "Conectarse en directo":
+           1) sustituye PEGA_AQUI_EL_ENLACE por la URL real de la
+              reunión (Zoom/Teams/Meet), dejando las comillas;
+           2) cambia btn-pendiente por btn-borde;
+           3) borra la palabra suelta: hidden
+           Y BORRA entera la línea del span "disponible el 16 de noviembre".
+           ══════════════════════════════════════════════════════════════ -->
+      <span class="btn btn-pendiente">Enlace de conexión — disponible el 16 de noviembre</span>
+      <a class="btn btn-pendiente" href="PEGA_AQUI_EL_ENLACE" target="_blank" rel="noopener" hidden>🔴 Conectarse en directo</a>
+    </div>
+  </div>
+</section>
 
 <div class="datos" role="region" aria-label="La red en cifras">
   <div class="datos-inner">
@@ -376,6 +501,30 @@ footer{
     <p class="sec-num">Resultados</p>
     <h2>Publicaciones y entregables</h2>
   </div>
+  <!-- ══════════════════════════════════════════════════════════════════
+       DESPUÉS DE RÍO: activar la entrada del seminario.
+       Quita la línea de apertura de comentario que hay justo debajo de
+       este aviso y la de cierre marcada con FIN-SOBENA. Comprueba que el
+       archivo cartel-seminario-rio-2026.png está subido al repositorio.
+       ══════════════════════════════════════════════════════════════════ -->
+  <!--
+  <div class="res-item">
+    <div><img src="cartel-seminario-rio-2026.png" alt="Cartel del seminario AIMAR en Río de Janeiro, noviembre de 2026"></div>
+    <div>
+      <p class="codigo">Seminario · A1.7 · Noviembre 2026</p>
+      <h3>Seminario abierto «Inteligencia artificial y diseño naval orientado a astilleros» — Río de Janeiro</h3>
+      <p>Celebrado el 16 de noviembre de 2026 en la UFRJ, en el marco del 31.º Congreso SOBENA, con ponencias de Pablo Sanz (UPCT), Jean-David Caprace (UFRJ/COPPE) y Sergio Vera (Innercore), y una puesta en común con los astilleros socios de la Red. <a href="programa-seminario-aimar-rio-2026.pdf" target="_blank" rel="noopener">Programa (PDF)</a></p>
+    </div>
+  </div>
+  <div class="res-item">
+    <div style="display:flex;align-items:center;justify-content:center;background:#EEF3F6;border-radius:3px;min-height:120px;font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:#54707F;letter-spacing:.08em">SOBENA 2026</div>
+    <div>
+      <p class="codigo">Congreso · Noviembre 2026</p>
+      <h3>Participación de la Red AIMAR en el 31.º Congreso SOBENA</h3>
+      <p>Presentación de los trabajos de la Red sobre inteligencia artificial aplicada al diseño naval en el congreso de la Sociedade Brasileira de Engenharia Naval (Río de Janeiro). COMPLETAR: títulos de las ponencias presentadas y autores.</p>
+    </div>
+  </div>
+  FIN-SOBENA -->
   <div class="resultados-vacio">
     <p class="codigo">En preparación</p>
     <h3>Primeros resultados en 2026</h3>
@@ -397,6 +546,8 @@ footer{
       <p class="valor">Universidad Politécnica de Cartagena — Física Aplicada y Tecnología Naval</p>
       <p class="campo">Correo</p>
       <p class="valor"><a href="mailto:mariajose.legaz@upct.es">mariajose.legaz@upct.es</a></p>
+      <p class="campo">Redes</p>
+      <p class="valor"><a href="https://x.com/red_aimar" target="_blank" rel="noopener">X — @red_aimar</a></p>
     </div>
   </div>
 </section>
@@ -404,7 +555,7 @@ footer{
 <footer>
   <div class="footer-inner">
     <p>Red Temática AIMAR · Financiada por el Programa CYTED · <span class="mono">Ref. 326RT0196 (2026–2029)</span></p>
-    <p>Universidad Politécnica de Cartagena</p>
+    <p>Universidad Politécnica de Cartagena · <a href="https://x.com/red_aimar" target="_blank" rel="noopener" style="color:var(--texto-suave)">@red_aimar</a></p>
   </div>
 </footer>
 
